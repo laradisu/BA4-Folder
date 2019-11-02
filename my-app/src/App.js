@@ -15,6 +15,9 @@ class App extends React.Component {
 
   filterUpdate(value) {
     //Here you will need to set the filterText property of state to the value passed into this function
+    this.setState({
+        filterText: value
+    })
   }
 
   selectedUpdate(id) {

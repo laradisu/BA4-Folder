@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterText: '',
+      filterText: 'hello',
       selectedBuilding: 0
     };
   }
@@ -32,7 +32,10 @@ class App extends React.Component {
           <h1>UF Directory App</h1>
         </div>
 
-        <Search/>
+        <Search 
+          filterText = {this.state.filterText}
+          filterUpdate = {this.filterUpdate.bind(this)}
+          />
         <main>
           <div className="row">
             <div className="column1">
@@ -45,6 +48,7 @@ class App extends React.Component {
                   </tr>
                   <BuildingList
                     data={this.props.data}
+                    filterText = {this.state.filterText}
                   />
                 </table>
               </div>

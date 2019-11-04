@@ -14,7 +14,16 @@ class BuilingList extends React.Component {
 			);
 		});
 
-		return <div>{buildingList}</div>;
+		return (
+			<div>
+				<p>
+					filterText value is: {this.props.filterText}
+				</p>
+				<u1>
+					{buildingList}
+				</u1>
+			</div>
+		); 
 	}
 }
 export default BuilingList;

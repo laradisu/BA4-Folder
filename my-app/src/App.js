@@ -3,6 +3,7 @@ import Search from './components/Search';
 import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
+import Table from 'react-bootstrap/Table';
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class App extends React.Component {
 
   selectedUpdate(id) {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
+    this.setState({
+      selectedBuilding: id
+    })
   }
 
   render() {
@@ -35,12 +39,12 @@ class App extends React.Component {
         <Search 
           filterText = {this.state.filterText}
           filterUpdate = {this.filterUpdate.bind(this)}
-          />
+        />
         <main>
           <div className="row">
             <div className="column1">
               <div className="tableWrapper">
-                <table className="table table-striped table-hover">
+                <Table className ="table table-striped table-hover">
                   <tr>
                     <td>
                       <b>Code Building</b>
@@ -49,10 +53,12 @@ class App extends React.Component {
                   <BuildingList
                     data={this.props.data}
                     filterText = {this.state.filterText}
+                    selectedUpdate = {this.selectedUpdate.bind(this)}
                   />
-                </table>
+                </Table>
               </div>
             </div>
+            
             <div className="column2">
               <ViewBuilding />
             </div>

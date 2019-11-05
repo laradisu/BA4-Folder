@@ -4,13 +4,14 @@ import ViewBuilding from './components/ViewBuilding';
 import BuildingList from './components/BuildingList';
 import Credit from './components/Credit';
 import Table from 'react-bootstrap/Table';
+import AddBuilding from './components/AddBuilding';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       filterText: '',
-      selectedBuilding: [],
+      selectedBuilding: 0,
       buildings: props.data,
     };
   }
@@ -23,30 +24,30 @@ class App extends React.Component {
     })
   }
 
-  selectedUpdate(id) {
+  selectedUpdate= id => {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
-    const update = this.state.selectedBuilding.concat([id])
+    // const update = this.state.selectedBuilding.concat([id])
     
     this.setState({
-      ...this.state,
-      selectedBuilding: update,
+      // ...this.state,
+      selectedBuilding: id,
     })
   }
 
   deleteBuilding = id => {
     console.log(this.state.buildings)
     this.setState(state=>{
-      var tempData = state.buildings;
-      for(var i = 0; i<tempData.length;i++)
+      var temp = state.buildings;
+      for(var i = 0; i<temp.length;i++)
       {
-        if(tempData[i].id ===id)
+        if(temp[i].id ===id)
         {
-          tempData.splice(i,1)
+          temp.splice(i,1)
         }
       }
       return{
         ...this.state,
-        buildings: tempData
+        buildings: temp
       }
       })
       
@@ -93,6 +94,7 @@ class App extends React.Component {
               selectedBuilding = {this.state.selectedBuilding}
               data = {this.props.data}
               />
+              <AddBuilding/>
             </div>
           </div>
           <Credit />

@@ -27,9 +27,9 @@ class BuilingList extends React.Component {
 
 		return (
 			<div>
-				<p>
+				{/* <p>
 					filterText value is: {this.props.filterText}
-				</p>
+				</p> */}
 				<u1>
 					<tbody>{buildingList}</tbody>
 				</u1>

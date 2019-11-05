@@ -5,11 +5,11 @@ class ViewBuilding extends React.Component {
 		const {selectedBuilding, data} = this.props
 		// console.log(selectedBuilding);
 		
-		const idList = selectedBuilding.map(id=> {
-			const {code, name, coordinates, address} = data[id-1]
+		// const idList = data[selectedBuilding].map(id=> {
+			const {code, name, coordinates, address} = data[selectedBuilding];
 			
-			return(
-				<li key = {id-1}>
+			const building = (
+				<li key = {selectedBuilding}>
 				<li> Code: {code} </li>
 				<li> Name: {name} </li>
 				<li> Coordinates:
@@ -23,14 +23,14 @@ class ViewBuilding extends React.Component {
 				<li> Address: {address} </li>
 			</li>
 			)
-	})
+	
 
 		return (
 			<div>
 				<p>
 					{' '}
 					<i>Click on a name to view more information</i>
-					{idList}
+					{building}
 				</p>
 			</div>
 		);

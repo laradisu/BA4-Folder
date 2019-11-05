@@ -3,15 +3,16 @@ import React from 'react';
 class ViewBuilding extends React.Component {
 	render() {
 		const {selectedBuilding, data} = this.props
+		console.log(selectedBuilding);
 		
 		const idList = selectedBuilding.map(id=> {
 			const {code, name, coordinates, address} = data[id-1]
 			
 			return(
 				<li key = {id-1}>
-				<li key = {id}> Code: {code} </li>
-				<li key = {id}> Name: {name} </li>
-				<li key = {id} > Coordinates:
+				<li> Code: {code} </li>
+				<li> Name: {name} </li>
+				<li> Coordinates:
 					{coordinates &&
 					<u1>
 						<li>Latitude: {coordinates.latitude} </li>
@@ -19,7 +20,7 @@ class ViewBuilding extends React.Component {
 					</u1>
 					}
 				</li>
-				<li key = {id}> Address: {address} </li>
+				<li> Address: {address} </li>
 			</li>
 			)
 	})

@@ -18,7 +18,8 @@ class App extends React.Component {
   filterUpdate(value) {
     //Here you will need to set the filterText property of state to the value passed into this function
     this.setState({
-        filterText: value
+      ...this.state,
+      filterText: value
     })
   }
 
@@ -27,12 +28,14 @@ class App extends React.Component {
     const update = this.state.selectedBuilding.concat([id])
     
     this.setState({
+      ...this.state,
       selectedBuilding: update,
     })
   }
 
-  deleteBuilding (id) {
+  deleteBuilding = id => {
     this.setState({
+      ...this.state,
       buildings: this.state.buildings.filter(b => b.id !== id),
     })
   }
@@ -60,7 +63,7 @@ class App extends React.Component {
                     </td>
                   </tr>
                   <BuildingList
-                    data={this.props.data}
+                    data={this.state.buildings}
                     filterText = {this.state.filterText}
                     selectedUpdate = {this.selectedUpdate.bind(this)}
                     deleteBuilding={this.deleteBuilding}

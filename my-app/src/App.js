@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       filterText: '',
-      selectedBuilding: 0
+      selectedBuilding: []
     };
   }
 
@@ -23,8 +23,10 @@ class App extends React.Component {
 
   selectedUpdate(id) {
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
+    const update = this.state.selectedBuilding.concat([id])
+    
     this.setState({
-      selectedBuilding: id
+      selectedBuilding: update,
     })
   }
 
@@ -60,7 +62,10 @@ class App extends React.Component {
             </div>
             
             <div className="column2">
-              <ViewBuilding />
+              <ViewBuilding 
+              selectedBuilding = {this.state.selectedBuilding}
+              data = {this.props.data}
+              />
             </div>
           </div>
           <Credit />

@@ -34,10 +34,25 @@ class App extends React.Component {
   }
 
   deleteBuilding = id => {
-    this.setState({
-      ...this.state,
-      buildings: this.state.buildings.filter(b => b.id !== id),
-    })
+    console.log(this.state.buildings)
+    this.setState(state=>{
+      var tempData = state.buildings;
+      for(var i = 0; i<tempData.length;i++)
+      {
+        if(tempData[i].id ===id)
+        {
+          tempData.splice(i,1)
+        }
+      }
+      return{
+        ...this.state,
+        buildings: tempData
+      }
+      })
+      
+    
+    
+    console.log(this.state.buildings)
   }
 
   render() {

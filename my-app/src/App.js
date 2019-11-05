@@ -10,7 +10,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       filterText: '',
-      selectedBuilding: []
+      selectedBuilding: [],
+      buildings: props.data,
     };
   }
 
@@ -27,6 +28,12 @@ class App extends React.Component {
     
     this.setState({
       selectedBuilding: update,
+    })
+  }
+
+  deleteBuilding (id) {
+    this.setState({
+      buildings: this.state.buildings.filter(b => b.id !== id),
     })
   }
 
@@ -56,6 +63,8 @@ class App extends React.Component {
                     data={this.props.data}
                     filterText = {this.state.filterText}
                     selectedUpdate = {this.selectedUpdate.bind(this)}
+                    deleteBuilding={this.deleteBuilding}
+                    onSelectBuilding={this.selectedUpdate}
                   />
                 </Table>
               </div>

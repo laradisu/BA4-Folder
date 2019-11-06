@@ -23,8 +23,9 @@ class App extends React.Component {
       filterText: value
     })
   }
-
+  
   selectedUpdate= id => {
+    
     //Here you will need to update the selectedBuilding property of state to the id passed into this function
     // const update = this.state.selectedBuilding.concat([id])
     
@@ -32,6 +33,7 @@ class App extends React.Component {
       // ...this.state,
       selectedBuilding: id,
     })
+
   }
 
   deleteBuilding = id => {

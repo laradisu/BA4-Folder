@@ -3,7 +3,7 @@ import React from 'react';
 class ViewBuilding extends React.Component {
 	render() {
 		const {selectedBuilding, data} = this.props
-		// console.log(selectedBuilding);
+		//console.log(selectedBuilding);
 		
 		// const idList = data[selectedBuilding].map(id=> {
 			const {code, name, coordinates, address} = data[selectedBuilding];
@@ -23,7 +23,7 @@ class ViewBuilding extends React.Component {
 				<li> Address: {address} </li>
 			</li>
 			)
-	
+			//console.log(building.key);
 
 		return (
 			<div>
